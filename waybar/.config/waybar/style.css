@@ -1,0 +1,157 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    color: #def;
+    text-shadow:
+        -1px -1px 2px #000,
+         1px -1px 2px #000,
+        -1px  1px 2px #000,
+         1px  1px 2px #000;
+    -gtk-icon-shadow:
+        -1px -1px 1px #000,
+         1px -1px 1px #000,
+        -1px  1px 1px #000,
+         1px  1px 1px #000;
+    min-height: 0;
+}
+
+#waybar {
+    background: transparent;
+    color: #eeeeee;
+}
+
+/*#waybar > box {
+    background: rgba(30, 30, 46, 0.5);
+    border-radius: 16px;
+    margin: 0px 2px;
+    padding: 0px 4px;
+}*/
+
+#custom-apps,
+#workspaces button,
+#privacy,
+#network,
+#memory,
+#cpu,
+#temperature,
+#pulseaudio,
+#backlight,
+#battery,
+#idle_inhibitor,
+#power-profiles-daemon,
+#tray,
+#custom-notification,
+#clock {
+    background: rgba(140, 140, 158, 0.5);
+    padding: 0px 8px;
+    margin: 1px 0px 1px 0px;
+    /*border: 1px solid black;*/
+}
+#workspaces {
+    padding: 0 5px;
+}
+#workspaces button.active {
+    background: rgba(240, 240, 258, 0.8);
+}
+.taskbar-window {
+    padding: 0px 2px;
+}
+.taskbar-window.active {
+    background: rgba(40, 40, 58, 0.5);
+}
+
+#custom-apps,
+#workspaces,
+#window,
+#privacy {
+    border-radius: 16px;
+    margin-right: 5px;
+}
+#custom-apps {
+    padding-left: 10px;
+    border: 1px solid black;
+}
+#workspaces button,
+#privacy {
+    border: 1px solid black;
+}
+#workspaces button {
+    border-radius: 16px;
+}
+
+#clock {
+    border-radius: 16px;
+    padding: 0 14px;
+    border: 1px solid black;
+}
+
+#network {
+    border-radius: 16px;
+    margin-right: 5px;
+    border: 1px solid black;
+}
+
+#memory {
+    border-radius: 16px 0 0 16px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#cpu {
+    border-radius: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#temperature {
+    border-radius: 0 16px 16px 0;
+    margin-right: 5px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#pulseaudio {
+    border-radius: 16px 0 0 16px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#backlight {
+    border-radius: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#battery {
+    border-radius: 0 16px 16px 0;
+    margin-right: 5px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#idle_inhibitor {
+    border-radius: 16px 0 0 16px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#power-profiles-daemon {
+    /*border-radius: 0px 16px 16px 0px;*/
+    /*margin-right: 5px;*/
+    border-top: 1px solid black;
+    /*border-right: 1px solid black;*/
+    border-bottom: 1px solid black;
+}
+#tray {
+    border-radius: 0px 16px 16px 0px;
+    margin-right: 5px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#custom-notification {
+    border-radius: 16px;
+    padding: 0px 15px 0px 15px;
+    border: 1px solid black;
+}

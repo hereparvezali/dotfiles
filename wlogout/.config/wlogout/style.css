@@ -1,0 +1,67 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+	background-image: none;
+	transition: 20ms;
+	box-shadow: none;
+}
+
+window {
+	background: rgba(60, 50, 60, 0.90);
+	background-size: cover;
+}
+
+button {
+	color: #FFFFFF;
+    font-size:14px;
+
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	background-color: rgba(50, 50, 80, 0.9);
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:focus,
+button:hover {
+    color: @color11;
+	background-color: rgba(80, 80, 120, 0.9);
+}
+
+
+#lock {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
+

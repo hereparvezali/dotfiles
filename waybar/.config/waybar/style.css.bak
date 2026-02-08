@@ -1,0 +1,84 @@
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(255, 255, 255, 0.05);
+    color: #eeeeee;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+#workspaces button,
+#taskbar button,
+.taskbar-window button {
+    padding: 0px 10px;
+    border-radius: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    min-width: 25px;
+    background: rgba(40, 40, 60, 0.5);
+}
+#workspaces button.active,
+#taskbar button.active {
+    background: rgba(255, 255, 255, 0.5);
+    color: #111111;
+    font-weight: bold;
+}
+
+#workspaces button:hover,
+#taskbar button:hover {
+    background: rgba(137, 180, 250, 0.7);
+    color: #cdd6f4;
+}
+.taskbar-window button:hover {
+    background: rgba(137, 180, 250, 0.9);
+}
+
+#custom-cpu,
+#custom-apps,
+#clock,
+#battery,
+#cpu,
+#temperature,
+#memory,
+#network,
+#privacy,
+#pulseaudio,
+#backlight,
+#tray,
+#custom-notification,
+#power-profiles-daemon,
+#idle_inhibitor,
+#custom-power {
+    padding: 0px 8px;
+    min-width: 25px;
+    margin: 2px 0px;
+    border-radius: 14px;
+    transition: all 0.5s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.3);
+}
+#workspaces,
+#taskbar {
+    padding: 0px 0px;
+    min-width: 0px;
+    margin: 2px 0px;
+    border-radius: 14px;
+    transition: all 0.5s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.3);
+}
+.taskbar-window.active {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 0px 5px;
+    border-radius: 10px;
+}
+#window {
+    margin: 0px 10px;
+}

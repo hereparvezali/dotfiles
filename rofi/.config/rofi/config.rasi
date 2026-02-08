@@ -1,0 +1,124 @@
+configuration {
+    modi:                   "drun,run,window,combi,recursivebrowser";
+    combi-modi:             "drun,run,recursivebrowser,window";
+    show-icons:             true;
+    icon-theme:             "Adwaita-Dark";
+    disable-history:        false;
+    sidebar-mode:           false;
+    display-drun:           "Apps";
+    display-run:            "Run";
+    display-window:         "Windows";
+}
+
+* {
+    background:             #2f3137;
+    background-alt:         #36383f;
+    foreground:             #d5d9e0;
+    selected:               #4e5363;
+    active:                 #8a80d0;
+    urgent:                 #bf616a;
+    border-col:             #2e3440;
+    accent:                 #5e81ac;
+}
+
+window {
+    transparency:           "real";
+    background-color:       @background;
+    text-color:             @foreground;
+    location:               center;
+    anchor:                 center;
+    fullscreen:             false;
+    width:                  40%;
+    border:                 0px;
+    border-radius:          16px;
+    padding:                5px;
+    children:               [ inputbar, message, listview ];
+}
+
+
+inputbar {
+    children:               [ prompt, entry ];
+    background-color:       @background-alt;
+    text-color:             @foreground;
+    expand:                 false;
+    border:                 2px;
+    border-radius:          12px;
+    border-color:           @border-col;
+    padding:                10px 14px;
+    margin:                 0px 0px 12px 0px;
+}
+message {
+	font:			"JetBrainsMono Nerd Font 11";
+	padding: 		8px 14px;
+}
+prompt {
+    enabled:                true;
+    font:                   "JetBrainsMono Nerd Font Bold 11";
+    padding:                0px 8px 0px 0px;
+    text-color:             @accent;
+}
+
+entry {
+    background-color:       transparent;
+    font:                   "JetBrainsMono Nerd Font Bold 11";
+    text-color:             inherit;
+    placeholder:            "Search...";
+    placeholder-color:      #6b7280;
+    expand:                 true;
+    horizontal-align:       0;
+}
+
+listview {
+    background-color:       transparent;
+    columns:                1;
+    lines:                  10;
+    spacing:                2px;
+    cycle:                  false;
+    dynamic:                true;
+    layout:                 vertical;
+    border:		    0px;
+}
+
+element {
+    background-color:       transparent;     // ← critical: force no background fallback
+    text-color:             @foreground;
+    orientation:            horizontal;
+    border-radius:          8px;
+    padding:                8px 14px;
+}
+
+element normal.normal {                          // explicit normal state
+    background-color:       transparent;
+    text-color:             @foreground;
+}
+
+element alternate.normal {                          // explicit normal state
+    background-color:       transparent;
+    text-color:             @foreground;
+}
+
+
+element selected {
+    background-color:       @selected;
+    text-color:             @foreground;
+    border:                 1px;
+    border-color:           @accent;
+    border-radius:          8px;
+}
+
+element selected normal {
+    background-color:       @selected;
+}
+
+element-icon {
+    background-color:       transparent;     // ← prevents white icon bg on some themes
+    size:                   1.2em;
+    padding:                0px 8px 0px 0px;
+}
+
+element-text {
+    font:                   "JetBrainsMono Nerd Font Propo 11";
+    background-color:       transparent;     // ← this often fixes white text bg
+    text-color:             inherit;
+    vertical-align:         0.5;
+}

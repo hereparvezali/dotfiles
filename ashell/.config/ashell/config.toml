@@ -1,0 +1,49 @@
+
+app_launcher_cmd = "rofi -show drun"
+clipboard_cmd = "cliphist list | rofi -dmenu | wl-copy"
+power_menu_cmd = "~/.config/waybar/power-menu.sh"
+
+[modules]
+left = ["AppLauncher" ,"Workspaces"]
+center = []
+right = [ "MediaPlayer", "KeyboardLayout", "Clipboard", "SystemInfo","Tray", "Clock", "Privacy","CustomNotifications", ["Settings"]]
+
+[system_info]
+indicators = ["DownloadSpeed", "UploadSpeed", "Cpu", "Memory", "Temperature" ]
+
+[clock]
+format = "%R"
+
+[media_player]
+max_title_length = 40
+
+[settings]
+shutdown_cmd = "shutdown now"
+suspend_cmd = "systemctl suspend"
+reboot_cmd = "systemctl reboot"
+logout_cmd = "loginctl kill-user $(whoami)"
+lock_cmd = "hyprlock &"
+wifi_more_cmd = "nm-connection-editor"
+vpn_more_cmd = "nm-connection-editor"
+bluetooth_more_cmd = "blueman-manager"
+
+[[CustomModule]]
+name = "CustomNotifications"
+icon = ""
+command = "swaync-client -t -sw"
+listen_cmd = "swaync-client -swb"
+icons.'dnd.*' = ""
+alert = ".*notification"
+
+
+[appearance]
+font_name = "JetBrainsMono Nerd Font"
+scale_factor = 1.0
+opacity = 0.5
+backdrop = 0.3
+
+# [appearance.background_color]
+# base = "#448877"
+# strong = "#448888"
+# weak = "#448855"
+# text = "#ffffff"
