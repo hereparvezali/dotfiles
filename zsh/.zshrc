@@ -36,5 +36,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias cd='z'
 alias ls='ls --color=auto'
+alias hx='helix'
 
 export PATH="$PATH:$HOME/.cargo/bin"
