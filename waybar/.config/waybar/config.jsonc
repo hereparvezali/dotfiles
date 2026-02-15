@@ -4,42 +4,37 @@
   "modules-left": [
     "custom/apps",
     // "custom/power",
-
     "hyprland/workspaces",
-
     "hyprland/window",
-
     // "wlr/taskbar",
-    "privacy",
+    "privacy"
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "network",
-
     "memory",
     "cpu",
     "temperature",
-
     "pulseaudio",
     "backlight",
     "battery",
-
     "idle_inhibitor",
     "power-profiles-daemon",
-
     "tray",
-
-    "custom/notification",
+    "custom/notification"
   ],
-
   "custom/apps": {
     "format": "<b>Apps</b>",
-    "on-click": "rofi -show drun",
+    "on-click": "rofi -show drun"
   },
   "hyprland/workspaces": {
     "format": "{icon} - {windows}",
     "format-window-separator": "  ",
-
+    "persistent-workspaces": {
+      "*": 3
+    },
     "workspace-taskbar": {
       "enable": true,
       "update-active-window": true,
@@ -47,12 +42,12 @@
       "icon-size": 14,
       //      "icon-theme": "Numix-Circle",
       "orientation": "horizontal",
-      "on-click-window": "sh -c 'hyprctl dispatch focuswindow address:{address}'",
-    },
+      "on-click-window": "sh -c 'hyprctl dispatch focuswindow address:{address}'"
+    }
   },
   "hyprland/window": {
     "format": "{}",
-    "max-length": 20,
+    "max-length": 20
   },
   "wlr/taskbar": {
     "format": "{icon}",
@@ -62,12 +57,12 @@
     "on-click": "activate",
     "on-click-middle": "close",
     "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition",
+      "firefoxdeveloperedition": "firefox-developer-edition"
     },
     "rewrite": {
       "Firefox Web Browser": "Firefox",
-      "Foot Server": "Terminal",
-    },
+      "Foot Server": "Terminal"
+    }
   },
   "privacy": {
     "icon-spacing": 12,
@@ -77,30 +72,30 @@
       {
         "type": "screenshare",
         "tooltip": true,
-        "tooltip-icon-size": 24,
+        "tooltip-icon-size": 24
       },
       {
         "type": "audio-out",
         "tooltip": true,
-        "tooltip-icon-size": 24,
+        "tooltip-icon-size": 24
       },
       {
         "type": "audio-in",
         "tooltip": true,
-        "tooltip-icon-size": 24,
-      },
+        "tooltip-icon-size": 24
+      }
     ],
     "ignore-monitor": true,
     "ignore": [
       {
         "type": "audio-in",
-        "name": "cava",
+        "name": "cava"
       },
       {
         "type": "screenshare",
-        "name": "obs",
-      },
-    ],
+        "name": "obs"
+      }
+    ]
   },
   "network": {
     "format-wifi": "↓↑ {bandwidthTotalBytes}",
@@ -109,23 +104,27 @@
     "tooltip-format": "IP: {ipaddr}\n{ifname} via {gwaddr}",
     "tooltip-format-wifi": "󰖩 {essid}\t\t({signalStrength}%)\nFreq:\t\t{frequency}GHz\nIP:\t\t{ipaddr}\n{ifname} via\t{gwaddr}",
     "tooltip-format-ethernet": "󰈀 IP: {ipaddr}\n{ifname} via {gwaddr}",
-    "interval": 1,
+    "interval": 1
   },
   "memory": {
     "format": " {used:0.1f}G {swapUsed:0.1f}G",
     "tooltip-format": "Used:\t\t{used:0.1f}G\nTotal:\t\t{total:0.1f}G\nSwap Used:\t{swapUsed:0.1f}G\nSwap Total:\t{swapTotal:0.1f}G",
-    "interval": 2,
+    "interval": 2
   },
   "cpu": {
     "format": " {usage}%",
     "tooltip": true,
-    "interval": 1,
+    "interval": 1
   },
   "temperature": {
     "critical-threshold": 70,
     "format": " {temperatureC}°",
-    "format-icons": ["", "", ""],
-    "interval": 2,
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "interval": 2
   },
   "pulseaudio": {
     "format": "{icon} {volume}% {format_source}",
@@ -141,20 +140,34 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""],
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
   },
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "",
-      "deactivated": "",
-    },
+      "deactivated": ""
+    }
   },
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -164,23 +177,35 @@
       "default": "",
       "performance": "",
       "balanced": "",
-      "power-saver": "",
-    },
+      "power-saver": ""
+    }
   },
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-charging": "⚡ {capacity}%",
     "format-plugged": "⚡ {capacity}%",
     "format-alt": "{icon}{time}",
-    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰂃",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 12,
+    "spacing": 12
   },
   // "custom/notification": {
   //   "tooltip": true,
@@ -202,7 +227,6 @@
   //   "on-click-right": "swaync-client -d -sw",
   //   "escape": true,
   // },
-
   "custom/notification": {
     "tooltip": false,
     "format": "󰂜",
@@ -217,7 +241,7 @@
     "on-click": "dunstctl history-pop",
     "on-click-right": "dunstctl set-paused toggle",
     "restart-interval": 1,
-    "escape": true,
+    "escape": true
   },
   "clock": {
     "format": "{:%H:%M}",
@@ -234,18 +258,18 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
-      },
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
+      "on-scroll-down": "shift_down"
+    }
   },
   "custom/power": {
     "format": "󰐥",
     "tooltip": false,
-    "on-click": "~/.config/waybar/power-menu.sh",
-  },
+    "on-click": "~/.config/waybar/power-menu.sh"
+  }
 }
