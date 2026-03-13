@@ -4,11 +4,11 @@ SAVEHIST=10000
 
 setopt autocd beep extendedglob nomatch notify share_history hist_ignore_dups hist_save_no_dups hist_ignore_space inc_append_history
 
+
+eval "$(zoxide init zsh)"
 # fpath=($fpath ~/.local/share/zsh/completions)
 autoload -Uz compinit
 compinit
-
-eval "$(zoxide init zsh)"
 
 
 bindkey -v
