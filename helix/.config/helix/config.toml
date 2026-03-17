@@ -1,1 +1,3 @@
 theme = "ayu_dark"
+[editor.lsp]
+display-inlay-hints = true
