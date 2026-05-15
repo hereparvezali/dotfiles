@@ -54,7 +54,7 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
     -- hl.exec_cmd("nm-applet")
     hl.exec_cmd("udiskie --no-automount --notify --smart-tray")
-    hl.exec_cmd("waybar & awww-daemon & hypridle & dunst")
+    hl.exec_cmd("waybar & hypridle & dunst")
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("foot --server")
@@ -216,7 +216,7 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        force_default_wallpaper = 0,     -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
@@ -262,7 +262,7 @@ hl.device({
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "SUPER"
+local main_mod = "SUPER"
 local terminal = "footclient"
 local fileManager = "nautilus"
 local menu = "rofi -dmenu -i"
@@ -271,52 +271,56 @@ local drun = "rofi -show drun"
 local filebrowser = "rofi -show recursivebrowser -theme-str 'window{width:60%;}'"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + M",
+hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(main_mod .. " + T", hl.dsp.exec_cmd(terminal))
+hl.bind(main_mod .. " + Q", hl.dsp.window.close())
+hl.bind(main_mod .. " + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(drun))
-hl.bind("ALT" .. " + SPACE", hl.dsp.exec_cmd(drun))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind("ALT" .. " + E", hl.dsp.exec_cmd(filebrowser))
-hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(run))
-hl.bind("ALT" .. " + TAB", hl.dsp.exec_cmd("rofi -show window"))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("swapsplit"))
+hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd(drun))
+hl.bind("ALT + SPACE", hl.dsp.exec_cmd(drun))
+hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind("ALT + E", hl.dsp.exec_cmd(filebrowser))
+hl.bind(main_mod .. " + F", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(run))
+hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
+hl.bind(main_mod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(main_mod .. " + SHIFT + J", hl.dsp.layout("swapsplit"))
 
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -i -p 'Cliphist' | cliphist decode | wl-copy"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
-hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("missioncenter"))
+hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -i -p 'Cliphist' | cliphist decode | wl-copy"))
+hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
+hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("missioncenter"))
 
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind("Print", hl.dsp.exec_cmd("hyprshot -z -m region -r - | swappy -f - -o ~/Pictures/Screenshots/"))
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+
+hl.bind("ALT + TAB", hl.dsp.window.cycle_next(), { repeating = true })
+hl.bind("ALT + SHIFT + TAB", hl.dsp.window.cycle_next({ prev = true }), { repeating = true })
+
+-- Move focus with main_mod + arrow keys
+hl.bind(main_mod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(main_mod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(main_mod .. " + up", hl.dsp.focus({ direction = "up" }))
+hl.bind(main_mod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+-- Switch workspaces with main_mod + [0-9]
+-- Move active window to a workspace with main_mod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(main_mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+-- Scroll through existing workspaces with main_mod + scroll
+hl.bind(main_mod .. " + TAB", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(main_mod .. " + SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+-- Move/resize windows with main_mod + LMB/RMB and dragging
+hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume",
