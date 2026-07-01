@@ -50,8 +50,10 @@ hl.monitor({
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
+    -- hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     -- hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
+    hl.exec_cmd("/usr/lib/pam_kwallet_init")
     -- hl.exec_cmd("nm-applet")
     hl.exec_cmd("udiskie --no-automount --notify --smart-tray")
     hl.exec_cmd("waybar & hypridle & dunst")
@@ -68,6 +70,8 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+-- hl.env("QT_STYLE_OVERRIDE", "kvantum")
 
 
 -----------------------
@@ -115,8 +119,9 @@ hl.config({
         layout           = "dwindle",
     },
 
+
     decoration = {
-        rounding         = 10,
+        rounding         = 5,
         rounding_power   = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -231,7 +236,7 @@ hl.config({
         kb_layout    = "us,bd",
         kb_variant   = "",
         kb_model     = "",
-        kb_options   = "grp:alt_shift_toggle,caps:escape",
+        kb_options   = "grp:shifts_toggle,caps:escape",
         kb_rules     = "",
 
         follow_mouse = 1,
@@ -264,7 +269,7 @@ hl.device({
 
 local main_mod = "SUPER"
 local terminal = "footclient"
-local fileManager = "nautilus"
+local fileManager = "dolphin"
 local menu = "rofi -dmenu -i"
 local run = "rofi -show run"
 local drun = "rofi -show drun"
@@ -285,10 +290,11 @@ hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(run))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(main_mod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(main_mod .. " + SHIFT + J", hl.dsp.layout("swapsplit"))
+hl.bind(main_mod .. " + DELETE", hl.dsp.exec_cmd("wlogout"))
 
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -i -p 'Cliphist' | cliphist decode | wl-copy"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
-hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("missioncenter"))
+hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("resources"))
 
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -z -m region -r - | swappy -f - -o ~/Pictures/Screenshots/"))
 
@@ -397,13 +403,13 @@ hl.window_rule({
 -- overlayLayerRule:set_enabled(false)
 
 -- Hyprland-run windowrule
-hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+-- hl.window_rule({
+--     name  = "move-hyprland-run",
+--     match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
-})
+--     move  = "20 monitor_h-120",
+--     float = true,
+-- })
 
 hl.window_rule({
     name = "speedcrunch",
