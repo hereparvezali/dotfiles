@@ -294,7 +294,7 @@ hl.bind(main_mod .. " + DELETE", hl.dsp.exec_cmd("wlogout"))
 
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -i -p 'Cliphist' | cliphist decode | wl-copy"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
-hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("resources"))
+hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("missioncenter"))
 
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -z -m region -r - | swappy -f - -o ~/Pictures/Screenshots/"))
 
