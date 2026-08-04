@@ -60,6 +60,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
   hl.exec_cmd("wl-paste --type image --watch cliphist store")
   hl.exec_cmd("foot --server")
+  hl.exec_cmd("awww-daemon")
 end)
 
 -------------------------------
@@ -155,7 +156,7 @@ hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 }
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
 -- Default springs
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 350, dampening = 45})
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
@@ -277,11 +278,10 @@ local filebrowser = "rofi -show recursivebrowser -theme-str 'window{width:60%;}'
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind("CTRL + RETURN", hl.dsp.exec_cmd(terminal))
+-- hl.bind("CTRL + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + Q", hl.dsp.window.close())
-hl.bind(main_mod .. " + M",
-  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd(drun))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(drun))
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(fileManager))
@@ -289,11 +289,14 @@ hl.bind("ALT + E", hl.dsp.exec_cmd(filebrowser))
 hl.bind(main_mod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(run))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
-hl.bind(main_mod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(main_mod .. " + J", hl.dsp.layout("togglesplit"))
+hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin())
+
 hl.bind(main_mod .. " + SHIFT + J", hl.dsp.layout("swapsplit"))
 hl.bind(main_mod .. " + DELETE", hl.dsp.exec_cmd("wlogout"))
 
-hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -i -p 'Cliphist' | cliphist decode | wl-copy"))
+
+hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("bash -c 's=$(cliphist list | rofi -dmenu -i -p \"Cliphist\") && [ -n \"$s\" ] && echo \"$s\" | cliphist decode | wl-copy'"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
 hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("missioncenter"))
 

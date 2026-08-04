@@ -11,7 +11,6 @@ autoload -Uz compinit
 compinit
 
 
-bindkey -v
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
@@ -36,11 +35,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias cd='z'
 alias ls='ls --color=auto'
-#alias hx='helix'
+alias hx='helix'
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
 
-export ANTHROPIC_AUTH_TOKEN="sk-AoBhy71vfbj5xgrXC1WjaoTooyYVSoJG23WF3Pv47QdVQfuZ"
-export ANTHROPIC_BASE_URL="https://agentrouter.org"
-export ANTHROPIC_MODEL="claude-opus-4-8"
+export ANDROID_HOME=$HOME/Android/Sdk
+
+# Added by Antigravity CLI installer
+export PATH="/home/parvez/.local/bin:$PATH"

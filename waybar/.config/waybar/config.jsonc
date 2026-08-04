@@ -101,9 +101,9 @@
     "format-wifi": "↓↑ {bandwidthTotalBytes}",
     "format-ethernet": "↓↑ {bandwidthTotalBytes}",
     // "format-disconnected": "x",
-    "tooltip-format": "IP: {ipaddr}\n{ifname} via {gwaddr}",
-    "tooltip-format-wifi": "󰖩 {essid}\t\t({signalStrength}%)\nFreq:\t\t{frequency}GHz\nIP:\t\t{ipaddr}\n{ifname} via\t{gwaddr}",
-    "tooltip-format-ethernet": "󰈀 IP: {ipaddr}\n{ifname} via {gwaddr}",
+    "tooltip-format": "IP: {ipaddr}/{cidr}\n{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "󰖩 {essid}\t\t({signalStrength}%)\nFreq:\t\t{frequency}GHz\nIP:\t\t{ipaddr}/{cidr}\n{ifname} via\t{gwaddr}",
+    "tooltip-format-ethernet": "󰈀 IP: {ipaddr}/{cidr}\n{ifname} via {gwaddr}",
     "interval": 1
   },
   "memory": {
