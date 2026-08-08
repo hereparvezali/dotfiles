@@ -30,17 +30,26 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+if [[ -f /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+    source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
+    
+# zsh-autosuggestions
+if [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 
 alias cd='z'
+alias cat='bat'
 alias ls='ls --color=auto'
 alias hx='helix'
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
 
-export ANDROID_HOME=$HOME/Android/Sdk
 
 # Added by Antigravity CLI installer
 export PATH="/home/parvez/.local/bin:$PATH"
